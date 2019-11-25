@@ -1,0 +1,84 @@
+sssomma
+** Excerpt of the FIRSTMARS mission data/voice recording stream.Registered at MILNASA GOLDSTONE large dish facility /Australia.** Deciphered: TKM34.Machine-Translated to readable intercode: Level 2.Data verbose: Level 5 (most important) 
+
+TOP TOP SECRET
+
+
+    ...
+    [JUL4/2042 04:04:01] Sensordata: Chute 0 0 0 0
+    [JUL4/2042 04:04:11] Sensordata: Legs arrested: 4 4 4 3
+    [JUL4/2042 04:04:12] Sensordata: Legs arrested: 4 4 4 4
+    [JUL4/2042 04:04:20] Landed Mode: ON ON ON ON
+    [JUL4/2042 04:04:44] Computer: Check OK
+    [JUL4/2042 04:04:54] Ship: OK
+    [JUL4/2042 04:05:01] CREW: OK
+    [JUL4/2042 04:06:17] Perimeter: OK
+    [JUL4/2042 04:07:01] COM: OK
+    [JUL4/2042 04:07:03] Computer: Start Streaming
+    [JUL4/2042 05:14:57] (ATL Ping: 67.19 minutes)
+    [JUL4/2042 04:07:14] ACLS: OK
+    [JUL4/2042 04:07:24] LIFE: OK
+    [JUL4/2042 04:07:30] POWER: OK
+    [JUL4/2042 04:14:51] AllSys Check: OK
+    [JUL4/2042 04:14:51] &&&&&&&&&&&&&&&&&& 30 30 30 30
+    [JUL4/2042 04:15:44] Mission Status: OK
+    [JUL4/2042 04:15:45] Computer: Wake Crew 1 1 1 1
+    ...
+
+
+**Excerpt of landing report /Cpt.Roberts 
+ ...
+"In summary all is well Atlanta.- How is the wake on your beaches today?We have a way cooler beach over here, I think.Oh yeah, I forgot: Lassiter has a minor cut on his hand from the waking procedure, but we taped him all up.Not a problem.I can hardly stop Bourne and First Sergeant McAllister from jumping out of this ship right now.- We reviewed the logs and the video taken during the Pegasus's approach - there is something very interesting just over the hill from our landing side.We can't quite make out what it is from the video, but there is definitely something on the surface.Anywho - so far the report.We are suited up for our first EVA and will be following the plan except we can hardly wait for your answer.We'll skip ahead and perform the landing ceremony now, the computer has given a go on all systems and mission items.See you in a few hours, don't be too mad, Atlanta, we were boxed up a long time..."
+...
+ 
+
+**EVA001 voice file cut
+...
+"Lassiter - keep with the group!""Affirmative *Sir*"
+"Nice job on the ceremony everyone, by the way.The Neo United States Army will be proud of you!""Shush McAllister.""Shush?""Shush.Revere the moment.""John!JOHN!!!""What is it, Lassiter?""JOHN!!My god, JOHNJOHNcomeJOHN"
+"Holy shit"
+"All back!Go back!Silence!"...
+"All raise your arm if you can hear me - ok."
+"John, by god..."
+"Calm down, Lassiter.Save the oxygen.""HA!Joke.""Ok people.Calm.This channel is quantum-entangled.Nobody but us.... OK, ok... ok Bourne, what did we just see?""Russ..Soviet ship, Sir.""Everyone agree?""Ha!A Soviet ship in 2042?""Well.It looked like that to me, too.""Think they saw us?""I didn't see anyone.""Who are they?The Russians?""If it's just Russians, why are we hiding here?"...
+"Ok, this is the video my helmet captured, I'll stream it.""Looks like 5 seconds of video before we freaked.""Yeah.I'll rerun'n stop in the middle.""Shit it really does look like a soviet space ship.Fuck me.""It looks old, doesn't it?""Yeah, it does.""Look at the middle.It looks like 5 oversized Sputnik-Designs welded together.""Do you think it's ancient... in that sense?""You mean they landed ages ago?""That would explain the design, the emblem and the soviet flag.""Right..."
+"Also, I do recall our proximity logs never said anything of another spacecraft in our vicinity.They can't have landed during our mission and Mars approach."...
+
+
+**Communique diplomatique RG3362 @AgencyLEVEL: UP17 /URGENT MILNASA >> ROSKOSMOS
+TOP TOP SECRET
+
+"Dear Friends,
+
+Despite the tensions between our nations, we extremely urgently request interagency talks
+between the inner director circles.Top Secret NUS manned military mission to Mars discovered Soviet Union landed manned ship.Current Mars crew is not responsive after first EVA reporting.Please advice.Flag Admiral K.C.Chaktow
+Central Commander
+Military National Aeronautics and Space Administration"
+
+
+**Communique diplomatique reRG3362 @AgencyLEVEL: UP17 /URGENT ROSKOSMOS >> MILNASA
+
+"Dear American Friends,
+
+Stand by.Continental Marshal Ivan Tchurov"
+
+
+**NSA excerpt file Ivan Tchurov
+...Highest ranking official in Russian secret service community.Reports to Russian president only....
+
+
+**Protocol from video conference  #TTJNKS8
+...
+Meyers: "And that about sums it up, gentlemen.We found a soviet ship on Mars, got a thin report about it from our crew.- And then lost that crew, it appears."Chaktow: "Thank you for the summary.We are now linking the Russians into the conference.I would remind everyone about the level of secrecy we are dealing with here."Vogaroff: (t)"Dear friends, you have really shocked us deeply with your last message."Chaktow: "Ah, good morning in Russia..."
+Tchurov: (t)"Flag Admiral, why did the NUS military send a manned ship to Mars in secret?"Chaktow: "Marshal Tchurov, the intention of the mission was peaceful research, I assure you."Tchurov: (t)"By an agency that has added 'military' to its name a few years ago?"Chaktow: "That..."
+Olberitch: "Screw translator!Screw politic!I talked to men back then!You American insanes!You fools!You us doomed all!"Tchurov: (t,intern)[Silence that farmer]
+Tchurov: (t)"Flag Admiral Chaktow, please excuse Mr. Olberitch.He is very old, and as we said, your message is a deep shock for all of us."Meyers: "But WHY?"Tchurov: (t)"Mister Meyers.The Soviet Union has indeed landed a ship on Mars in 1972.They intended to beat America by one-up-manship in the space race."Chaktow: "Okey..."
+Tchurov: (t)"They discovered that Mars is home to an ancient civilization.They hide deep underground.They are not many.In our negotiations with them they told us they keep their numbers at 500 to 700 at a time."Meyers: "What are you...?"Tchurov (t)"THEY, MISTER MEYERS, possess awesome technology.Incredible energy generation capability.Perfect cloaking technology.Compared to us they are gods."Chaktow: "Suppose that is true.Why did you keep it secret?And why are the Martians hiding?"Tchurov: (t)"Mars was once a blue planet, as you know.Very much like Earth.The Martians became too powerful in the eyes of the Gools.The Gools are to the Martians what the Martians are to us.The Gools wiped out their planet and civilization at the blink of an eye once they discovered them.The survivors are hiding in neverending fear the Gools might come back and turn the Sun Supernova to finish the job.They are desperately doing everything to preserve themselves in a neverending universe that is ruled absolutely by the Gools."Chakow: "Okey but..."
+Tchurov: (t)"AND THIS, Flag Admiral, is where we come in: If our civilization becomes too powerful, if it ascends too far, if it becomes truely spare-faring, then the Gool will come back to this sun, and wipe it out.The sun.The planets.Like you are I swat an annoying fly.When the Soviet Union landed, the Martians were desperately afraid the Gools would notice this accomplishment.They are willing - and absolutely able, I would like to point out - to annihilate Earth and all living things on it.And they were close to doing so in 1972.- But the Soviet Union negotiated with them to escape this judgement day for mankind."Chakow: "You negotiated with Martians in the 1970s?"Tchurov: (t)"Yes."Chakow: "To make them not destroy our planet so this solar system is inconspicuous?"Tchurov: (t)"Yes."Chakow: "And the result is that it wasn't destroyed so far?"Tchurov: (t)"Yes."Vogaroff: (t)"Look, Flag Admiral, the Soviet Union and later Russia did everything they could to drag Earth's civilization down.To drag you down."Olberitch: "LET ME BACK!See is true!We try make you richest people.It no work.We try political chaos to keep you busy on Earth.It work a time.We desperate.We try being insane country to make you busy longer.It no more work.You start space mission.Your crew dead.The Martians will coming now.I was at negotiation.We must.."
+Tchurov: (t)"Flag Admiral, as per the terms of the negotiation the Soviet Union conducted on behalf of all mankind with the Martians, we are currently in breach of the contract by launching an interplanetary manned mission."Chakow: "And what are we to do now?"Tchurov: (t)"There is one - and only a single - allowance available because the Soviet Union pointed out it may be difficult to keep this world from developing while not being able to disclose the existance of all powerful Martian riders of the apocalypse at the door."Chakow: "Which is?"...
+
+
+** Speech of the Joint Central Commander in Chief of the Neo United States of America
+"My fellow Americans,
+
+Today we are faced with ever growing budget shortfalls.Our defense capabilities cost us a great deal of money.The aging population costs a great deal of money.The climate change adaptation efforts cost even more than a great deal of money.After consulting with my chiefs of staff, the military commanders, the appropriate secretaries and with scientists, I have decided to henceforth address this problem.By order of the Joint Central Commander, MILNASA is disbanded.The terrestrial communication activities will be handed to military signal units, the Earth science activities to MILNOAA.We as a nation herewith say thank you to all the great men and women who explored space before us, and who died gathering knowledge about it.But we chose to solve the problems on Earth first, before we send another human into space, or another probe deep into the solar system.With this I wish you a good night, to you and your families.God commands all of us."
