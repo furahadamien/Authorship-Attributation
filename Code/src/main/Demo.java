@@ -14,6 +14,7 @@ import edu.stanford.nlp.semgraph.SemanticGraphEdge;
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.trees.*;
 import edu.stanford.nlp.util.CoreMap;
+import edu.stanford.nlp.util.StringUtils;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -31,16 +32,11 @@ public class Demo {
         args = new String[1];
         args[0] = "./resources/input.txt";
 
-        boolean core = false;
-        if (core) {
-            corePipeline(args);
+        if (args.length == 0) {
+            demoAPI(lp);
         } else {
-            if (args.length == 0) {
-                demoAPI(lp);
-            } else {
-                String textFile = (args.length > 1) ? args[1] : args[0];
-                demoDP(lp, textFile);
-            }
+            String textFile = (args.length > 1) ? args[1] : args[0];
+            demoDP(lp, textFile);
         }
     }
 
@@ -62,35 +58,13 @@ public class Demo {
         }
         // You could also create a tokenizer here (as below) and pass it
         // to DocumentPreprocessor
-        // HashSet<String> leafs = new HashSet<>();
 
         ISG graph = new ISG();
         for (List<HasWord> sentence : new DocumentPreprocessor(filename)) {
             HashMap<String, String> posTags = new HashMap<>();
             Tree parse = lp.apply(sentence);
-            // sentenceTrees.add(parse);
-            //System.out.println(parse.nodeString());
 
             parse.pennPrint();
-
-            /*
-            // perform a DFS on the tree to collect all the labels of each terminal (word) in a Set of strings
-            Tree curNode = parse;
-            parse.indexLeaves();
-            Stack<Tree> s = new Stack<>();
-            s.add(curNode);
-            while (!s.empty()) {
-                curNode = s.pop();
-
-                if (curNode.isPreTerminal()) {
-                    posTags.put(curNode.firstChild().label().toString(), curNode.label().toString());
-                    leafs.add(curNode.label().toString() + "-" + curNode.firstChild().label().toString());
-                    // System.out.println(curNode.label().toString() + "-" + curNode.firstChild().label().toString());
-                }
-
-                s.addAll(curNode.getChildrenAsList());
-            }
-            */
 
             if (gsf != null) {
                 GrammaticalStructure gs = gsf.newGrammaticalStructure(parse);
@@ -105,17 +79,38 @@ public class Demo {
                     graph.addEdge(td.gov().toString(), td.dep().toString(), td.reln().toString());
                 }
 
-                // System.out.println(tdl);
                 System.out.println();
-            }
-
-            for (String node : posTags.keySet()) {
-            //    System.out.println(node + "-" + posTags.get(node));
             }
 
             System.out.println(graph);
         }
 
+        HashMap<String, ArrayList<ISG.ISGEdge>> paths = graph.getShortestPaths();
+        for (String node : paths.keySet()) {
+            System.out.print(node + " : [");
+            for (ISG.ISGEdge edge : paths.get(node)) {
+                System.out.print(edge.toString() + ", ");
+            }
+            System.out.println("]");
+        }
+
+        System.out.println("#########");
+
+        HashMap<String, HashMap<String, Integer>> matrix = graph.extractFeatureMatrix();
+        List<String> allFeatures = graph.getFeatures();
+
+        ArrayList<String> nodes = new ArrayList<>(matrix.keySet());
+        Collections.sort(nodes);
+        for (String n : nodes) {
+            System.out.print(String.format("%1$-20s", "[[" + n + "]]: "));
+
+            HashMap<String, Integer> vector = matrix.get(n);
+            for (String feature : allFeatures) {
+                System.out.print(vector.get(feature) + " ");
+            }
+
+            System.out.println();
+        }
     }
 
     /**
