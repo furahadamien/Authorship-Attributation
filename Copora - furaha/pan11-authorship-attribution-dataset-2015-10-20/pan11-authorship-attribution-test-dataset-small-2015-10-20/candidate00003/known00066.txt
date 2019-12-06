@@ -1,3 +1,0 @@
-
-
-<NAME/>, what are the contract numbers that the producer's gas gets allocated too?

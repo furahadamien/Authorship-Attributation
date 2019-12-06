@@ -1,6 +1,0 @@
-
-
-New login for www.friedwire.com is:
-
-login: enron04
-password: enron

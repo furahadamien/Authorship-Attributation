@@ -5,6 +5,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.pipeline import Pipeline
 from nltk import FreqDist
 import numpy as np
+import nltk
 from sklearn import metrics
 from sklearn.model_selection import GridSearchCV
 from sklearn.datasets import load_iris
@@ -17,6 +18,7 @@ from nltk.stem import WordNetLemmatizer
 from sklearn.preprocessing import LabelEncoder
 from collections import defaultdict
 from sklearn import model_selection, naive_bayes, svm
+from sklearn.linear_model import SGDClassifier
 
 categories = ["candidate00001", "candidate00002", "candidate00003",
 "candidate00004", "candidate00005", "candidate00006", "candidate00007",
@@ -45,8 +47,18 @@ test_directory = '../Copora - furaha/Testing'
 test_data = load_files(test_directory)
 
 test_doc = test_data.data
+print(len(test_doc))
+#for f in test_doc:
+    #print(f)
+    #f.decode('utf-8')
+test = "curtesy of Damien"
 
+
+print(type(test_doc))
+token = nltk.word_tokenize(test_doc[1].decode('utf-8'))
+print(nltk.pos_tag(token))
 count_vect = CountVectorizer()
+
 X_train_counts = count_vect.fit_transform(train_data.data)
 
 tf_transformer = TfidfTransformer(use_idf=False).fit(X_train_counts)
@@ -67,9 +79,6 @@ predicted = text_clf.predict(test_doc)
 print('Support Vector Machine accuracy %r:' %np.mean(predicted == test_data.target) )
 print('Support Vector Machin model confusion Matrix')
 print(metrics.confusion_matrix(test_data.target, predicted))
+ 
 
-
-
-#for x in range (10, 73):
-#    print('"candidate000' + str(x)+ '", ', end="")
 

@@ -21,8 +21,14 @@ from sklearn import model_selection, naive_bayes, svm
 from sklearn.linear_model import SGDClassifier
 import string
 
-categories = ["candidate00001", "candidate00002", "candidate00003"
-, "candidate00004", "candidate00005"]
+categories = ["candidate00001", "candidate00002", "candidate00003",
+"candidate00004", "candidate00005", "candidate00006", "candidate00007",
+"candidate00008", "candidate00009", "candidate00010", "candidate00011", 
+"candidate00012", "candidate00013", "candidate00014", "candidate00015", 
+"candidate00016", "candidate00017", "candidate00018", "candidate00019", 
+"candidate00020", "candidate00021", "candidate00022", "candidate00023", 
+"candidate00024", "candidate00025", "candidate00026", "candidate00027", 
+"candidate00028", "candidate00029", "candidate00030"]
 
 train_directory = '../Copora - furaha/Training1'
 train_data = load_files(train_directory)
@@ -39,7 +45,7 @@ test = "curtesy of Damien"
 
 
 print(type(test_doc))
-print(test_data.target_names[test_data.target[0]])
+#print(test_data.labels)
 
 for x in range (0, len(test_doc)):
     token = nltk.word_tokenize(test_doc[x].decode('utf-8'))
@@ -80,7 +86,11 @@ predicted = text_clf.predict(test_doc)
 print('Support Vector Machine accuracy %r:' %np.mean(predicted == test_data.target) )
 print('Support Vector Machin model confusion Matrix')
 print(metrics.confusion_matrix(test_data.target, predicted))
-print(train_data.target)
+print(len(train_data.target)
+print(np.mean(predicted == test_data.target))
+
+print(metrics.classification_report(test_data.target, predicted,
+target_names=test_data.target_names))
  
 
 

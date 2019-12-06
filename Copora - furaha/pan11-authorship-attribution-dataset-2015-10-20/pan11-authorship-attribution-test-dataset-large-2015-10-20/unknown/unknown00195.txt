@@ -1,7 +1,0 @@
-
-
-<NAME/> --
-
-The RTO week stuff is different from SSO stuff, right?
-
-<NAME/>
