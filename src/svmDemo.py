@@ -45,6 +45,7 @@ test = "curtesy of Damien"
 
 
 print(type(test_doc))
+print(test_data.target_names)
 #print(test_data.labels)
 
 for x in range (0, len(test_doc)):
@@ -86,11 +87,6 @@ predicted = text_clf.predict(test_doc)
 print('Support Vector Machine accuracy %r:' %np.mean(predicted == test_data.target) )
 print('Support Vector Machin model confusion Matrix')
 print(metrics.confusion_matrix(test_data.target, predicted))
-print(len(train_data.target)
-print(np.mean(predicted == test_data.target))
 
-print(metrics.classification_report(test_data.target, predicted,
-target_names=test_data.target_names))
- 
 
 
