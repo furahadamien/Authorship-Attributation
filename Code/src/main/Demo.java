@@ -14,32 +14,61 @@ import edu.stanford.nlp.semgraph.SemanticGraphEdge;
 import edu.stanford.nlp.sentiment.SentimentCoreAnnotations;
 import edu.stanford.nlp.trees.*;
 import edu.stanford.nlp.util.CoreMap;
-import edu.stanford.nlp.util.StringUtils;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.io.StringReader;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Demo {
+
+    private static String ROOT_DIR = "C:\\Users\\Irene\\Documents\\University\\U3 Courses\\Fall 2019\\Comp 550\\Final Project\\Code\\src\\resources\\";
+
     public static void main(String[] args) throws IOException {
+
         String parserModel = "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz";
-        if (args.length > 0) {
-            parserModel = args[0];
-        }
         LexicalizedParser lp = LexicalizedParser.loadModel(parserModel);
 
-        args = new String[1];
-        args[0] = "./resources/input.txt";
+        List<HashMap<String, HashMap<String,Integer>>> knownProfiles = new ArrayList<>();
+        try (Stream<Path> walk = Files.walk(Paths.get(ROOT_DIR, "known"))) {
+            // walk through the resource directory (known folder)
+            List<String> kResult = walk.filter(Files::isRegularFile)
+                    .map(x -> x.toString()).collect(Collectors.toList());
 
-        if (args.length == 0) {
-            demoAPI(lp);
-        } else {
-            String textFile = (args.length > 1) ? args[1] : args[0];
-            demoDP(lp, textFile);
+            // for each file in the directory, call demoDP
+            kResult.forEach((file) -> {
+                System.out.println(file);
+                knownProfiles.add(demoDP(lp, file));
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try (Stream<Path> walk = Files.walk(Paths.get(ROOT_DIR, "unknown"))) {
+            // walk through the resource directory (known folder)
+            List<String> ukResult = walk.filter(Files::isRegularFile)
+                    .map(x -> x.toString()).collect(Collectors.toList());
+
+            // for each file in the directory, call demoDP
+            ukResult.forEach((file) -> {
+                System.out.println(file);
+                HashMap<String, HashMap<String, Integer>> unknown = demoDP(lp, file);
+                for (int i = 0; i < knownProfiles.size(); i++) {
+                    HashMap<String, HashMap<String, Integer>> profile = knownProfiles.get(i);
+                    System.out.println("Comparing with profile: " + i);
+                    Similarity(unknown, profile);
+                    System.out.println();
+                }
+            });
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
-
 
     /**
      * demoDP demonstrates turning a file into tokens and then parse
@@ -48,7 +77,8 @@ public class Demo {
      * pennPrint if you want to capture the output.
      * This code will work with any supported language.
      */
-    public static void demoDP(LexicalizedParser lp, String filename) {
+    public static HashMap<String, HashMap<String, Integer>> demoDP(LexicalizedParser lp, String filename) {
+
         // This option shows loading, sentence-segmenting and tokenizing
         // a file using DocumentPreprocessor.
         TreebankLanguagePack tlp = lp.treebankLanguagePack(); // a PennTreebankLanguagePack for English
@@ -61,31 +91,29 @@ public class Demo {
 
         ISG graph = new ISG();
         for (List<HasWord> sentence : new DocumentPreprocessor(filename)) {
-            HashMap<String, String> posTags = new HashMap<>();
             Tree parse = lp.apply(sentence);
-
             parse.pennPrint();
 
             if (gsf != null) {
                 GrammaticalStructure gs = gsf.newGrammaticalStructure(parse);
-                Collection tdl = gs.typedDependenciesCCprocessed();
+                // Collection tdl = gs.typedDependenciesCCprocessed();
 
+                // Build up the ISG for the input document by adding the parse of the current sentence to the existing graph
+                // Note that each sentence will begin with the ROOT-0 node, and identical nodes across sentences get automatically collapsed
                 for (TypedDependency td : gs.typedDependenciesCCprocessed()) {
-                    System.out.println(td);
-                    System.out.print(td.dep() + "\t");
-                    System.out.print(td.reln() + "\t");
-                    System.out.print(td.gov() + "\t");
-                    System.out.println();
+                    prettyPrintTD(td);
+
+                    // NB: this adds the two endpoints of the edge to the nodes list in graph in addition to adding the edge itself
                     graph.addEdge(td.gov().toString(), td.dep().toString(), td.reln().toString());
                 }
-
-                System.out.println();
             }
-
-            System.out.println(graph);
         }
 
-        HashMap<String, ArrayList<ISG.ISGEdge>> paths = graph.getShortestPaths();
+        System.out.println(graph);
+
+        // In the final output graph (includes all documents for the author), compute the shortest path with Djikstra
+        /*HashMap<String, ArrayList<ISG.ISGEdge>> paths = graph.getShortestPaths();
+        // Loop through the nodes/edges of the path and print
         for (String node : paths.keySet()) {
             System.out.print(node + " : [");
             for (ISG.ISGEdge edge : paths.get(node)) {
@@ -93,24 +121,77 @@ public class Demo {
             }
             System.out.println("]");
         }
+        */
 
-        System.out.println("#########");
+        System.out.println("######### AUTHOR PROFILE ########");
 
+        // Compute the feature matrix for the ISG using the shortest path
         HashMap<String, HashMap<String, Integer>> matrix = graph.extractFeatureMatrix();
         List<String> allFeatures = graph.getFeatures();
 
+        // Get the row values
         ArrayList<String> nodes = new ArrayList<>(matrix.keySet());
         Collections.sort(nodes);
         for (String n : nodes) {
-            System.out.print(String.format("%1$-20s", "[[" + n + "]]: "));
+            System.out.print(String.format("%1$-25s", "[[" + n + "]]: "));
 
             HashMap<String, Integer> vector = matrix.get(n);
             for (String feature : allFeatures) {
-                System.out.print(vector.get(feature) + " ");
+                if (!vector.containsKey(feature)) System.out.print(0 + " ");
+                else System.out.print(vector.get(feature) + " ");
             }
 
             System.out.println();
         }
+        System.out.println();
+
+        return matrix;
+    }
+
+    // Takes in unknown document feature matrix D1 and known author feature matrix D2
+    // Computes the cosine similarity score between them, using following formula:
+    //      Similarity(D1, D2) = SUM_[i=1 to m] ( SUM_[j=1 to |V|] (f_D1[i][j] * f_D2[i][j] ) / (sqrt(SUM_[j=1 to |V|] (f_D1[i][j])^2) * sqrt(SUM_[j=1 to |V|] (f_D2[i][j])^2))
+    public static void Similarity(HashMap<String, HashMap<String, Integer>> D1, HashMap<String, HashMap<String, Integer>> D2) {
+        float score = 0;
+        Set<String> features = new HashSet<>();
+        // Loop through each endpoint in D1
+        for (String endpoint : D1.keySet()) {
+            // Skip every iteration where there is no path to the endpoint in the known profile document
+            if (!D2.containsKey(endpoint)) {
+                continue;
+            }
+
+            features = D1.get(endpoint).keySet().stream()
+                        .filter(D2.get(endpoint).keySet()::contains)
+                        .collect(Collectors.toSet());
+
+            int numerator = 0;
+            int denominatorA = 0;
+            int denominatorB = 0;
+
+            // Loop through each component in the feature vector for node 'endpoint'
+            for (String f : features) {
+                int val1 = D1.get(endpoint).get(f);
+                int val2 = D2.get(endpoint).get(f);
+                numerator += val1 * val2;
+                denominatorA += (val1 * val1);
+                denominatorB += (val2 * val2);
+            }
+
+            System.out.println(numerator);
+            System.out.println(denominatorA);
+            System.out.println(denominatorB);
+
+            if (denominatorA == 0 && denominatorB == 0) {
+                continue;
+            }
+
+            score += numerator / (Math.sqrt(denominatorA) * Math.sqrt(denominatorB));
+
+            System.out.println("new score: " + score);
+        }
+
+        System.out.println("final score: " + score);
     }
 
     /**
@@ -150,8 +231,6 @@ public class Demo {
         TreePrint tp = new TreePrint("penn,typedDependenciesCollapsed");
         tp.printTree(parse);
     }
-
-
     public static void corePipeline(String[] args) throws IOException {
         // set up optional output files
         PrintWriter out;
@@ -284,7 +363,12 @@ public class Demo {
         IOUtils.closeIgnoringExceptions(xmlOut);
     }
 
+    private static void prettyPrintTD(TypedDependency td) {
+        System.out.print(td + "\t\t --> \t\t");
+        System.out.print(td.dep() + "\t");
+        System.out.print(td.reln() + "\t");
+        System.out.print(td.gov() + "\t");
+        System.out.println();
+    }
 
 }
-
-

@@ -62,6 +62,8 @@ public class ISG {
         }
     }
 
+    // Looks at the entire ISG and collects all unique feature types, to be returned as a list of strings
+    // Uses a LexMorSyn feature set -> unique words, unique POS tags, unique dependencies
     public List<String> getFeatures() {
         List<String> features = new ArrayList<>();
 
@@ -88,24 +90,27 @@ public class ISG {
         return features;
     }
 
+    // Computes the feature matrix for an ISG with the following structure:
+    //  - rows: the set of nodes (words) other than the ROOT-0 node --> represents the endpoint of the root->node path
+    //  - columns: the set of features of interest: word counts, POS tags, dependency tags... TODO add vowel counts
     public HashMap<String, HashMap<String, Integer>> extractFeatureMatrix() {
-        List<String> allFeatures = getFeatures(); // contains three sets: unique words, POS, dep edge labels
+//        List<String> allFeatures = getFeatures(); // contains three sets: unique words, POS, dep edge labels
 
         HashMap<String, ArrayList<ISGEdge>> paths = getShortestPaths();
         HashMap<String, HashMap<String, Integer>> matrix = new HashMap<>();
-        for (String n: nodes) {
-            HashMap<String, Integer> hm = new HashMap<>();
-            for (String f : allFeatures) {
-                hm.put(f, 0);
-            }
-            matrix.put(n, hm);
-        }
+//        for (String n: nodes) {
+//            HashMap<String, Integer> hm = new HashMap<>();
+//            for (String f : allFeatures) {
+//                hm.put(f, 0);
+//            }
+//
+//        }
 
         for (String n : nodes) {
             if (n.equals(root))
                 continue;
 
-            HashMap<String, Integer> vector = matrix.get(n);
+            HashMap<String, Integer> vector = new HashMap<>();
 
             // Loop through the shortest path from ROOT to current node 'n'
             // Tally up counts of each feature type in the path
@@ -113,6 +118,10 @@ public class ISG {
             for (ISGEdge step : shortestPath) {
                 String[] arr = step.nodeB.split("/");
                 String rel = step.relation;
+
+                if (!vector.containsKey(arr[0])) vector.put(arr[0], 0);
+                if (!vector.containsKey(arr[1])) vector.put(arr[1], 0);
+                if (!vector.containsKey(rel)) vector.put(rel, 0);
 
                 vector.put(arr[0], vector.get(arr[0]) + 1);
                 vector.put(arr[1], vector.get(arr[1]) + 1);

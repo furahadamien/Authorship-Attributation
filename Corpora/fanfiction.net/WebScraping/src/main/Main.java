@@ -12,13 +12,27 @@ import java.util.HashSet;
 
 public class Main {
 
+    /* HP fanfiction
     private static String BASE_URL = "https://www.fanfiction.net/book/Harry-Potter/";
     private static String PAGE_URL = BASE_URL + "?&srt=1&lan=1&r=10&len=5&p="; // filtered for English only, >5k words
+    private static String OUTPUT_DIR = "hp_files/";
+    */
+
+    // ST fanfiction
+    // private static String BASE_URL = "https://www.fanfiction.net/movie/Star-Trek-2009/";
+    // private static String PAGE_URL = BASE_URL + "?&srt=1&lan=1&r=10&len=5&p="; // filtered for English only, >5k words
+    // private static String OUTPUT_DIR = "st_files/";
+
+    // P&P (Austen)
+    private static String BASE_URL = "https://www.fanfiction.net/book/Pride-and-Prejudice/";
+    private static String PAGE_URL = BASE_URL + "?&srt=1&lan=1&r=10&len=5&p="; // filtered for English only, >5k words
+    private static String OUTPUT_DIR = "pp_files/";
+
 
     private static HashSet<String> visitedStories = new HashSet<>();
 
     public static void main(String[] args) {
-        for (int i = 2; i < 12; i++) {
+        for (int i = 0; i < 12; i++) {
             System.out.println(i);
             try {
                 Document doc = Jsoup.connect(PAGE_URL + i).get();
@@ -61,7 +75,7 @@ public class Main {
                     }
 
                     String output = author.replace("/", "-") + ".txt";
-                    BufferedWriter bw = new BufferedWriter(new FileWriter("files/" +output));
+                    BufferedWriter bw = new BufferedWriter(new FileWriter(OUTPUT_DIR + output));
                     bw.write(body.toString());
                     bw.close();
                 }

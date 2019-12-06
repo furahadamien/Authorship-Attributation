@@ -9,25 +9,34 @@ def smoothing_fn(x, mu, sigma):
 
     if 0 <= x <= 1:
         return gauss.pdf(x) / (norm.cdf((1-mu)/sigma) - norm.cdf((0-mu)/sigma))
-    else
+    else:
         return 0
 
 W = []
 V = []
 T = []
-vocabulary = OrderedSet([]) 
+D = []
+vocabulary = OrderedSet([])
+
 for d in docs:
     N = len(d) - 3 + 1 # for n = 3 (character level trigrams)
     chrs = [ c for c in d]
 
     features = []
     indices = []
+    bag_of_hist = {}
     for n in ngrams(chrs, 3):
         features.append(str(n[0]) + str(n[1]) + str(n[2]))
-        indices.append(vocabulary.add(str(n[0]) + str(n[1]) + str(n[2])))
+        # add(...) returns the index in the ordered set; append this to indices vector V
+        index = (vocabulary.add(str(n[0]) + str(n[1]) + str(n[2])))
+        indices.append(index)
+        
+        if index not in bag_of_hist: bag_of_hist[index] = 0
+        bag_of_hist[index] += 1
         
     W.append(features)
     V.append(indices)
+    D.append(bag_of_hist)
 
     t = []
     next_t = 0
@@ -37,9 +46,12 @@ for d in docs:
 
     T.append(t)
 
+    BOLH = []
+    for i in range(len(T)):
+        BOLH.append(D[V[i]] * smoothing_fn(T[i]))
 
-    
-
+    for local_hist in BOLH:
+        print(local_hist)
 
 print(vocabulary)
 print("W")
