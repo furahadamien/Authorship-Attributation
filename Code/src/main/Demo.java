@@ -66,15 +66,14 @@ public class Demo {
 
                 for (int i = 0; i < knownProfiles.size(); i++) {
                     HashMap<String, HashMap<String, Integer>> profile = knownProfiles.get(i);
-                    System.out.println("Comparing with profile: " + knownAuthors.get(i));
+                    System.out.println("Comparing " + file.replace(ROOT_DIR, "") + " with profile: " + knownAuthors.get(i));
                     float score = Similarity(unknown, profile);
                     if (score > bestScore) {
                         bestScore = score;
                         bestAuthor = i;
                     }
-                    System.out.println();
                 }
-                System.out.println("Author with highest similarity: " + knownAuthors.get(bestAuthor));
+                System.out.println("Author with highest similarity: " + knownAuthors.get(bestAuthor) + "\n");
             });
         } catch (IOException e) {
             e.printStackTrace();
@@ -134,7 +133,7 @@ public class Demo {
         }
         */
 
-        System.out.println("######### AUTHOR PROFILE ########");
+        // System.out.println("######### AUTHOR PROFILE ########");
 
         // Compute the feature matrix for the ISG using the shortest path
         HashMap<String, HashMap<String, Integer>> matrix = graph.extractFeatureMatrix();
