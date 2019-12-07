@@ -21,6 +21,7 @@ from sklearn import model_selection, naive_bayes, svm
 from sklearn.linear_model import SGDClassifier
 import string
 import math
+import matplotlib.pyplot as plt
 
 from sklearn.model_selection import train_test_split
 
@@ -130,6 +131,7 @@ classifier=RandomForestClassifier(n_estimators=10)
 classifier.fit(a_train.toarray(), b_train)                            
 prediction = classifier.predict(a_test.toarray()) 
 
+
 clf = svm.SVC(kernel=my_kernel)
 # Support Vector Machine model
 #text_clf = Pipeline([('vect', CountVectorizer()),
@@ -138,8 +140,30 @@ clf = svm.SVC(kernel=my_kernel)
 
 clf.fit(a_train.toarray(), b_train)
 
+x_min, x_max = a_train.toarray()[:, 0].min() - 1, a_train.toarray()[:, 0].max() + 1
+y_min, y_max = a_train.toarray()[:, 1].min() - 1, a_train.toarray()[:, 1].max() + 1
+
+
+xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
+print(xx.shape)
+print(yy.shape)
+Z = np.sin(xx**2 + yy**2) / (xx**2 + yy**2)
+print(Z.shape)
+Z = Z.reshape(xx.shape)
+plt.pcolormesh(xx, yy, Z, cmap=plt.cm.Paired)
+
+plt.scatter(a_train.toarray()[:, 0], a_train.toarray()[:, 1], c=b_train, cmap=plt.cm.Paired, edgecolors='k')
+#plt.plot(xx,yy, marker='.', color='k', linestyle='none')
+
+
+plt.show()
 #SVM evaluation
 #predicted = clf.predict(test_doc)
-print('Support Vector Machine accuracy %r:' %np.mean(prediction == b_train) )
+print('Support Vector Machine accuracy %r:' %np.mean(prediction == b_test) )
 print('Support Vector Machin model confusion Matrix')
-print(metrics.confusion_matrix(b_train, prediction))
+print(b_train.shape)
+print(prediction.shape)
+print(b_test.shape)
+print(a_train.shape)
+print(a_test.shape)
+print(metrics.confusion_matrix(b_test, prediction))
