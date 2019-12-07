@@ -34,6 +34,7 @@ public class Demo {
         String parserModel = "edu/stanford/nlp/models/lexparser/englishPCFG.ser.gz";
         LexicalizedParser lp = LexicalizedParser.loadModel(parserModel);
 
+        List<String> knownAuthors = new ArrayList<>();
         List<HashMap<String, HashMap<String,Integer>>> knownProfiles = new ArrayList<>();
         try (Stream<Path> walk = Files.walk(Paths.get(ROOT_DIR, "known"))) {
             // walk through the resource directory (known folder)
@@ -43,6 +44,7 @@ public class Demo {
             // for each file in the directory, call demoDP
             kResult.forEach((file) -> {
                 System.out.println(file);
+                knownAuthors.add(file.replace(ROOT_DIR + "known\\", ""));
                 knownProfiles.add(demoDP(lp, file));
             });
         } catch (IOException e) {
@@ -56,14 +58,23 @@ public class Demo {
 
             // for each file in the directory, call demoDP
             ukResult.forEach((file) -> {
-                System.out.println(file);
+
                 HashMap<String, HashMap<String, Integer>> unknown = demoDP(lp, file);
+
+                int bestAuthor = -1;
+                float bestScore = -1;
+
                 for (int i = 0; i < knownProfiles.size(); i++) {
                     HashMap<String, HashMap<String, Integer>> profile = knownProfiles.get(i);
-                    System.out.println("Comparing with profile: " + i);
-                    Similarity(unknown, profile);
+                    System.out.println("Comparing with profile: " + knownAuthors.get(i));
+                    float score = Similarity(unknown, profile);
+                    if (score > bestScore) {
+                        bestScore = score;
+                        bestAuthor = i;
+                    }
                     System.out.println();
                 }
+                System.out.println("Author with highest similarity: " + knownAuthors.get(bestAuthor));
             });
         } catch (IOException e) {
             e.printStackTrace();
@@ -92,7 +103,7 @@ public class Demo {
         ISG graph = new ISG();
         for (List<HasWord> sentence : new DocumentPreprocessor(filename)) {
             Tree parse = lp.apply(sentence);
-            parse.pennPrint();
+            // parse.pennPrint();
 
             if (gsf != null) {
                 GrammaticalStructure gs = gsf.newGrammaticalStructure(parse);
@@ -101,7 +112,7 @@ public class Demo {
                 // Build up the ISG for the input document by adding the parse of the current sentence to the existing graph
                 // Note that each sentence will begin with the ROOT-0 node, and identical nodes across sentences get automatically collapsed
                 for (TypedDependency td : gs.typedDependenciesCCprocessed()) {
-                    prettyPrintTD(td);
+                    // prettyPrintTD(td);
 
                     // NB: this adds the two endpoints of the edge to the nodes list in graph in addition to adding the edge itself
                     graph.addEdge(td.gov().toString(), td.dep().toString(), td.reln().toString());
@@ -109,7 +120,7 @@ public class Demo {
             }
         }
 
-        System.out.println(graph);
+        // System.out.println(graph);
 
         // In the final output graph (includes all documents for the author), compute the shortest path with Djikstra
         /*HashMap<String, ArrayList<ISG.ISGEdge>> paths = graph.getShortestPaths();
@@ -130,7 +141,7 @@ public class Demo {
         List<String> allFeatures = graph.getFeatures();
 
         // Get the row values
-        ArrayList<String> nodes = new ArrayList<>(matrix.keySet());
+        /*ArrayList<String> nodes = new ArrayList<>(matrix.keySet());
         Collections.sort(nodes);
         for (String n : nodes) {
             System.out.print(String.format("%1$-25s", "[[" + n + "]]: "));
@@ -144,14 +155,14 @@ public class Demo {
             System.out.println();
         }
         System.out.println();
-
+        */
         return matrix;
     }
 
     // Takes in unknown document feature matrix D1 and known author feature matrix D2
     // Computes the cosine similarity score between them, using following formula:
     //      Similarity(D1, D2) = SUM_[i=1 to m] ( SUM_[j=1 to |V|] (f_D1[i][j] * f_D2[i][j] ) / (sqrt(SUM_[j=1 to |V|] (f_D1[i][j])^2) * sqrt(SUM_[j=1 to |V|] (f_D2[i][j])^2))
-    public static void Similarity(HashMap<String, HashMap<String, Integer>> D1, HashMap<String, HashMap<String, Integer>> D2) {
+    public static float Similarity(HashMap<String, HashMap<String, Integer>> D1, HashMap<String, HashMap<String, Integer>> D2) {
         float score = 0;
         Set<String> features = new HashSet<>();
         // Loop through each endpoint in D1
@@ -178,9 +189,9 @@ public class Demo {
                 denominatorB += (val2 * val2);
             }
 
-            System.out.println(numerator);
-            System.out.println(denominatorA);
-            System.out.println(denominatorB);
+            // System.out.println(numerator);
+            // System.out.println(denominatorA);
+            // System.out.println(denominatorB);
 
             if (denominatorA == 0 && denominatorB == 0) {
                 continue;
@@ -188,10 +199,11 @@ public class Demo {
 
             score += numerator / (Math.sqrt(denominatorA) * Math.sqrt(denominatorB));
 
-            System.out.println("new score: " + score);
+            // System.out.println("new score: " + score);
         }
 
-        System.out.println("final score: " + score);
+        // System.out.println("final score: " + score);
+        return score;
     }
 
     /**
