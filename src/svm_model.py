@@ -7,7 +7,7 @@ iris = datasets.load_iris()
 X = iris.data[:, :2]
 Y = iris.target
 
-print(X)
+print(X[0])
 gamma = 0.1
 
 def Dd(P, Q):

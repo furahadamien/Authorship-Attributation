@@ -129,7 +129,7 @@ a_train, a_test, b_train, b_test = train_test_split(X, y, test_size=0.33, random
 from sklearn.ensemble import RandomForestClassifier 
 classifier=RandomForestClassifier(n_estimators=10)                  
 classifier.fit(a_train.toarray(), b_train)                            
-prediction = classifier.predict(a_test.toarray()) 
+
 
 
 clf = svm.SVC(kernel=my_kernel)
@@ -143,7 +143,7 @@ clf.fit(a_train.toarray(), b_train)
 x_min, x_max = a_train.toarray()[:, 0].min() - 1, a_train.toarray()[:, 0].max() + 1
 y_min, y_max = a_train.toarray()[:, 1].min() - 1, a_train.toarray()[:, 1].max() + 1
 
-
+prediction = clf.predict(a_test.toarray()) 
 xx, yy = np.meshgrid(np.arange(x_min, x_max, h), np.arange(y_min, y_max, h))
 print(xx.shape)
 print(yy.shape)
