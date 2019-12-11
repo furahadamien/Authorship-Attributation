@@ -46,13 +46,16 @@ for d in docs:
 
     T.append(t)
 
-    BOLH = []
+    smoothing_fn(0.5, 1, 0.1)
+
+    """BOLH = []
     for i in range(len(T)):
         BOLH.append(D[V[i]] * smoothing_fn(T[i]))
 
     for local_hist in BOLH:
         print(local_hist)
-
+    """
+   
 print(vocabulary)
 print("W")
 print(W)
