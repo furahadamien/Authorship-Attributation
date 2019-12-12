@@ -1,0 +1,20 @@
+So far, my only workaroound is to rename the files so that spaces are replaced with underscore using the following one-liner:   for file in *; do mv "$file" `echo "$file" | tr ' ' '_'`; done ja:    血  �  見  � ����？   en: Wanna see blood?
+They can do all sort of wonderful tricks to them such as inserting nulls at arbitrary positions to cut or deliminate the the strings.
+x: 0.0.0.0:0   After some googling I found that the conntrack module chokes on spaced filenames...
+However, it is not the case in Java or .NET strings, where they are heavily protected and limited by their length field.
+urlLink Straw man - Wikipedia, the free encyclopedia  Here is an example of Straw man technique:  A: It is really hard to find a job in Vancouver.
+B: How do you explain my friend, who got employeed after only two weeks of searching?
+That's just plain silly... C folks all love the null-terminated strings.
+Note: This entry contains  RUBY annotations .
+It's some interesting observation, but I have yet to find a use for this trick.
+c and file names   I always thought that it was a bug in irssi that prevented me from dcc-sending files with spaced filenames--until one day, I noticed a few lines in dmesg:   Forged DCC command from x. x.x.
+Mozilla users need to  download  this plugin in order to view them.
+zh:  想見血嗎？   Pronunciation: chi-mee-T'HE-no-ka  The usage of this phrase is self-explanatory, but whose blood it means is entirely up to the person the phrase is addressed to.
+In the example, B presents an anecdote which does not invalidate A's statement in anyway.
+Gotta take it seriously, you know.
+Sometimes you wonder why you just can't make the other party understand your point.
+Next time when you are in a debate, try identify as many straw men as posible.
+If you are using Winforms on Windows, you will notice that the assemblies are simply the wrappers of the good old WIN32 API.
+If you try to make a text field display a string with Unicode 0x0000 in it, when it gets to the marshalling everything after the null character will get truncated.
+Well... �里之行始於足下。—a thousand-mile-long journey begins with a single step.
+urlLink Irssi Users List Archives (05/2003) - : DCC, ip_conntrack_irc.
