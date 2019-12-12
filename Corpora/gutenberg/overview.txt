@@ -1,0 +1,12 @@
+austen	3	2026377
+bible	1	4332550
+blake	1	38150
+bryant	1	249433
+burgess	1	84657
+carroll	1	144394
+chesterton	3	1184598
+edgeworth	1	935154
+melville	1	1242986
+milton	1	468219
+shakespeare	3	375537
+whitman	1	711213
