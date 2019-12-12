@@ -1,0 +1,28 @@
+real author: author_1	predicted scores: (8.92, 2.43)	8.57 8.57 10.54 5.89 10.35 9.62 	diff: 1.9754753
+real author: author_0	predicted scores: (6.39, 1.24)	6.81 4.90 7.90 7.00 4.90 6.84 	diff: 1.0933399
+real author: author_1	predicted scores: (12.38, 5.65)	13.57 9.89 14.84 9.73 15.58 10.65 	diff: 0.74522495
+real author: author_0	predicted scores: (1.81, 0.78)	3.00 2.94 1.94 1.00 1.00 1.00 
+real author: author_2	predicted scores: (2.00, 0.00)	2.00 2.00 2.00 2.00 2.00 2.00 	diff: 3.0
+real author: author_1	predicted scores: (5.95, 1.91)	5.00 4.95 5.00 5.94 8.90 5.91 	diff: 2.9504776
+real author: author_0	predicted scores: (1.33, 0.22)	2.00 1.00 2.00 1.00 1.00 1.00 
+real author: author_0	predicted scores: (0.00, 0.00)	0.00 0.00 0.00 0.00 0.00 0.00 
+real author: author_1	predicted scores: (3.17, 1.47)	3.00 3.00 5.00 4.00 1.00 3.00 	diff: 2.0
+real author: author_2	predicted scores: (1.66, 0.22)	1.00 1.95 2.00 2.00 1.00 2.00 
+real author: author_1	predicted scores: (4.00, 1.00)	5.00 4.00 4.00 4.00 2.00 5.00 	diff: 6.0
+real author: author_0	predicted scores: (6.02, 3.26)	6.86 5.00 4.90 3.95 9.52 5.90 	diff: 2.6644197
+real author: author_3	predicted scores: (9.34, 1.75)	10.52 8.85 8.70 6.95 10.54 10.49 	diff: 0.025227547
+real author: author_4	predicted scores: (6.12, 3.66)	6.66 3.96 6.89 3.95 9.52 5.75 
+real author: author_3	predicted scores: (4.65, 0.88)	5.94 5.00 3.00 3.95 5.00 5.00 	diff: 6.944911
+real author: author_3	predicted scores: (3.67, 2.22)	4.00 3.00 5.00 2.00 2.00 6.00 	diff: 1.0
+real author: author_3	predicted scores: (3.90, 0.66)	2.87 4.00 4.69 3.95 5.00 2.87 	diff: 0.30805683
+real author: author_3	predicted scores: (1.00, 0.00)	1.00 1.00 1.00 1.00 1.00 1.00 	diff: 2.0
+real author: author_3	predicted scores: (2.17, 0.14)	2.00 2.00 2.00 2.00 3.00 2.00 	diff: 1.0
+real author: author_4	predicted scores: (5.62, 0.49)	6.85 5.00 5.95 5.00 4.95 5.96 	diff: 7.849946
+real author: author_4	predicted scores: (10.13, 1.85)	9.95 11.00 8.95 7.94 10.95 12.00 	diff: 1.0
+real author: author_5	predicted scores: (7.03, 1.06)	5.80 6.85 7.89 6.00 6.90 8.75 
+real author: author_5	predicted scores: (6.26, 2.39)	5.88 4.96 7.00 6.95 4.00 8.79 
+real author: author_4	predicted scores: (1.49, 0.24)	1.94 2.00 2.00 1.00 1.00 1.00 	diff: 0.056543708
+
+
+accuracy: 0.29166666
+18401ms runtime

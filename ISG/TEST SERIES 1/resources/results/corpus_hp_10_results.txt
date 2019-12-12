@@ -1,0 +1,44 @@
+real author: author_9	predicted scores: (4.83, 0.64)	4.90 5.95 5.00 4.90 3.95 4.95 4.95 4.88 3.00 5.80 	diff: 1.0511928
+real author: author_0	predicted scores: (3.45, 0.24)	3.94 3.00 3.00 3.82 3.00 2.95 3.95 2.87 4.00 4.00 	diff: 0.051316738
+real author: author_8	predicted scores: (7.37, 2.01)	4.89 7.84 7.84 7.77 6.95 8.85 7.90 5.82 6.00 9.90 	diff: 1.053587
+real author: author_0	predicted scores: (6.45, 1.36)	6.88 6.95 5.00 6.98 4.95 5.61 7.75 5.67 5.96 8.74 	diff: 0.9865556
+real author: author_4	predicted scores: (2.10, 2.70)	1.00 1.00 3.00 3.00 6.00 1.00 2.00 0.00 0.96 3.00 
+real author: author_9	predicted scores: (2.99, 0.39)	2.00 3.00 3.00 3.95 2.00 3.00 2.95 3.00 3.00 4.00 
+real author: author_7	predicted scores: (5.00, 3.36)	4.94 5.89 2.95 6.94 4.95 6.76 3.90 0.94 5.94 6.79 	diff: 1.0502462
+real author: author_0	predicted scores: (1.70, 0.61)	3.00 1.00 3.00 1.00 1.00 2.00 1.00 2.00 2.00 1.00 
+real author: author_7	predicted scores: (2.37, 0.99)	2.00 3.95 1.00 1.94 2.00 2.90 1.00 2.00 3.94 2.95 	diff: 1.9486833
+real author: author_8	predicted scores: (1.89, 0.87)	1.00 2.00 2.00 2.00 1.00 2.00 2.94 2.94 0.00 3.00 	diff: 0.057190895
+real author: author_9	predicted scores: (3.08, 0.29)	3.96 2.95 2.00 4.00 2.95 2.96 3.00 3.00 2.95 3.00 	diff: 0.043817043
+real author: author_0	predicted scores: (10.29, 2.56)	7.79 11.74 11.75 10.71 8.84 10.84 9.79 7.81 10.89 12.69 	diff: 0.941309
+real author: author_4	predicted scores: (10.98, 9.82)	6.00 11.89 14.89 10.95 10.79 16.72 7.00 9.96 8.89 12.73 	diff: 1.8240871
+real author: author_0	predicted scores: (3.81, 1.43)	3.00 3.90 4.89 3.91 4.74 4.00 3.89 1.94 1.89 5.90 	diff: 1.0058742
+real author: author_1	predicted scores: (0.10, 0.09)	0.00 0.00 0.00 0.00 1.00 0.00 0.00 0.00 0.00 0.00 	diff: 1.0
+real author: author_7	predicted scores: (5.72, 1.35)	5.91 6.95 4.95 6.85 3.96 6.90 5.95 3.89 4.90 6.95 	diff: 0.0038962364
+real author: author_7	predicted scores: (5.55, 4.34)	2.00 6.95 7.00 6.82 3.95 6.95 4.00 5.91 3.00 8.95 	diff: 1.9525795
+real author: author_9	predicted scores: (5.37, 1.04)	3.96 4.95 6.00 6.94 4.95 4.90 5.00 7.00 5.95 4.00 	diff: 0.057190895
+real author: author_0	predicted scores: (5.25, 1.73)	4.00 4.96 4.95 5.87 7.86 6.95 5.00 4.96 2.96 5.00 	diff: 1.996481
+real author: author_6	predicted scores: (2.00, 0.40)	2.00 2.00 3.00 3.00 2.00 1.00 1.00 2.00 2.00 2.00 	diff: 1.0
+real author: author_4	predicted scores: (6.40, 3.80)	7.00 6.85 6.00 9.84 4.80 7.79 3.89 4.96 3.94 8.94 	diff: 2.8409014
+real author: author_4	predicted scores: (7.43, 3.54)	7.89 8.90 7.94 9.89 4.00 9.90 7.00 5.85 5.00 7.95 	diff: 0.007021904
+real author: author_6	predicted scores: (5.03, 1.68)	5.00 2.95 5.96 4.98 5.00 4.84 5.90 3.80 4.00 7.90 	diff: 1.940597
+real author: author_9	predicted scores: (3.35, 1.19)	4.00 4.84 2.90 3.95 2.00 4.95 2.00 4.00 1.95 2.95 	diff: 0.108383656
+real author: author_6	predicted scores: (2.47, 0.41)	2.00 2.00 3.95 2.00 2.00 3.00 2.87 2.00 2.00 2.90 	diff: 1.9486833
+real author: author_4	predicted scores: (2.98, 0.58)	2.94 3.00 2.00 2.94 2.00 4.00 2.00 3.95 3.95 3.00 	diff: 1.0
+real author: author_6	predicted scores: (3.27, 0.78)	1.96 3.00 3.94 4.89 2.95 2.00 3.00 3.00 4.00 4.00 	diff: 0.9459598
+real author: author_9	predicted scores: (6.37, 1.85)	5.95 4.00 7.00 6.91 5.95 5.00 5.94 5.90 9.00 8.00 	diff: 2.0
+real author: author_6	predicted scores: (3.28, 1.12)	2.87 4.81 2.87 3.80 2.00 3.76 3.98 3.82 1.00 3.87 	diff: 1.9443204
+real author: author_3	predicted scores: (8.59, 2.96)	4.87 9.75 9.60 11.70 7.89 9.84 7.82 8.68 7.87 7.87 
+real author: author_0	predicted scores: (5.23, 2.10)	3.87 5.87 3.87 4.87 4.87 7.66 4.98 5.82 3.00 7.54 	diff: 1.7909613
+real author: author_8	predicted scores: (2.76, 0.15)	2.95 2.00 3.00 2.98 2.00 2.89 2.90 2.94 3.00 3.00 	diff: 0.051316738
+real author: author_0	predicted scores: (5.22, 0.22)	5.00 4.95 4.95 5.90 4.85 6.00 4.89 5.89 4.85 4.95 	diff: 0.09873724
+real author: author_9	predicted scores: (2.38, 1.19)	2.00 3.94 3.00 2.00 1.00 3.90 3.00 1.00 1.00 3.00 	diff: 1.9428091
+real author: author_6	predicted scores: (3.48, 0.66)	2.00 4.00 5.00 2.95 3.00 3.00 2.95 4.00 4.00 3.95 	diff: 1.0
+real author: author_6	predicted scores: (6.28, 1.69)	4.95 6.81 7.84 5.79 3.95 6.90 5.95 7.81 5.00 7.81 	diff: 1.0320692
+real author: author_1	predicted scores: (0.29, 0.39)	1.00 0.00 0.00 0.00 0.00 0.00 0.00 1.94 0.00 0.00 	diff: 0.942809
+real author: author_0	predicted scores: (2.20, 0.76)	3.00 1.00 2.00 2.00 2.00 3.00 1.00 2.00 2.00 4.00 	diff: 1.0
+real author: author_5	predicted scores: (9.21, 2.26)	7.71 10.68 9.95 10.90 6.00 10.70 9.57 8.69 8.00 9.87 	diff: 0.21249199
+real author: author_0	predicted scores: (3.09, 0.89)	1.00 4.00 3.00 2.94 2.00 4.00 4.00 4.00 3.00 3.00 	diff: 3.0
+
+
+accuracy: 0.1
+7278ms runtime
