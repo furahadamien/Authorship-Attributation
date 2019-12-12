@@ -1,0 +1,20 @@
+              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00        10
+           1       0.38      1.00      0.55         6
+
+    accuracy                           0.38        16
+   macro avg       0.19      0.50      0.27        16
+weighted avg       0.14      0.38      0.20        16
+
+[[[ 6,  0],
+  [10,  0]],
+
+ [[ 0, 10],
+  [ 0,  6]]]
+
+time passed: 1178.397403717041
+# authors: 2
+# train docs: 64
+# test docs: 16
+vocab size: 1800
