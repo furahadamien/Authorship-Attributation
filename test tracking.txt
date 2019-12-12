@@ -1,0 +1,84 @@
+Currently Running:
+- demo10: HP-10 for the 50 document 10 author setting (0.1dt)
+- demo10copy: WP-10 for the 10 author, 50 document setting (0.1dt)
+- demo5: HP-5 for the 5 author 100 document setting (0.1dt)
+- demo8: HP-3, HP-10, WP-3, WP-10, Blog-3, Blog-10 for 20 document (0.05dt)
+
+
+Needed to Fill Table:
+- 100 docs per 5 authors for WP, blogs [5Corpus, demo5]
+- HP-10 (20), WP-10 (20), Blogs-10 (20) (0.5dt)
+- HP-5 (20, WP-5 (20), Blogs-5 (20) (0.1dt)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+EXPECTED RUNTIMES: (started at 1:50pm)
+-> for 3 authors, = 60docs * 10s/doc = 10min
+-> for 5 authors, = 100docs * 10s/doc = 16min
+-> for 10 authors, = 200docs * 10s/doc = 33min
+-> for 50 authors, = 1000docs * 10s/doc = 166min (2.7h)
+
+[DONE] SVM1: running the full set of test suites in order
+-> gb, hp, blog, wp in order of 3, 5, 10 and 3, 10, 50 respectively by corpus
+>> aim to cancel when gb finishes and switch over to blog-50
+SO FAR: gb-3, gb-5, gb-10
+
+SVM2: running tests on wp, blog, hp in that order with [50, 10, 3] lengths in that order 
+>> aim to cancel when wp 50, 10, 3 are all finished
+SO FAR: wp-50(+) - gave up after 7h (3h testing)
+- restarted with 10 for wp !!
+
+[DONE] SVM3: running tests on blog corpus on 3, 10, 50
+SO FAR: blog-3, blog-10 
+
+[DONE] SVM4: running tests on hp corpus on 3, 10, 50
+>> aim to cancel when 3 and 10 are finished
+SO FAR: hp-3, hp-10
+
+[TERM] SVM5: running tests on hp corpus on 50
+SO FAR: hp-50(+) - gave up after 7h --> NB: it looks like after 400 lines in a corpus, SVM takes AGES to do feature extraction but even longer to just TRAIN the model
+
+SVM-5Corpus: running tests on 5 authors with 100 documents each (400:100 total) on gb, hp, wp, blog
+>> might want to try and parallelize when possible
+SO FAR: gb-5, hp-5
+
+[DONE] SVM6: running tests on austen vs. pp fanfiction on 10 authors combined vs Jane Austen herself 
+[DONE] SVM6: running the same test but splitting it back into 10 separate author labels again 
+
+SVM7: blog on 50
+SO FAR: blog-50(+) - gave up after 7h
+
+[TERM] SVM100: hp, blog, wp on 100 authors with reduced # documents 
+>> aim to cancel and start another for just the blog when some of the other SVM stuff finishes 
+
+SVM10: hp, blog, wp on 10 authors with increased # documents 
+SO FAR: gb-10, hp-10(+)
+
+SVM10-Copy: blog on 10 authors with increased # documents 
+SO FAR: blog-10, wp-10
+
+SVM8: hp, wp, blog on 3, 10 authors with 25 documents and INTEGRAND modified
+SO FAR: hp-3, hp-10(+)
+
+SVM9: hp, wp, blog on 3, 10 with 20 documents each and INTEGRAND modified 
+
+SVM520:
+>> stop this after it finishes wp and hp 
+- repeat SVM but with 5 authors instead for wp, hp, and blog 
+
+SVM520 copy:
+- handle the blog corpus 
