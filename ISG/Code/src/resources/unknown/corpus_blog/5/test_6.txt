@@ -1,0 +1,1 @@
+On Friday, Apple warned of a flaw in its Safari web browser which could allow malicious code to be run on a machine without a user's permission.'
