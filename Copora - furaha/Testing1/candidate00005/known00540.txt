@@ -1,5 +1,0 @@
-
-
-Password = jinglebells
-
-<NAME/>

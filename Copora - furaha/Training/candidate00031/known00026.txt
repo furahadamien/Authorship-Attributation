@@ -1,3 +1,0 @@
-
-
-Its a bridge to Sun/Oracle, so i can run ERMS portcalc, curveview, ect from my PC
